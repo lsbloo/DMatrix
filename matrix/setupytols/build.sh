@@ -81,4 +81,5 @@ function export_variables(){
 	export PATH_SAVE_CSV=$PATH_SAVE_CSV
 }
 export_variables
+cd .. ; pip install -r requeriments.txt
 toilet -F border -F metal "OK!"
