@@ -1,5 +1,9 @@
 import psycopg2
 
+commands_create_tables = [
+    (("CREATE TABLE IF NOT EXISTS address (id serial primary key, street varchar(255), number varchar(255), neighborhood varchar(255), city varchar(255), state varchar(255));")),
+    (("CREATE TABLE IF NOT EXISTS locates (id serial primary key, latitude varchar(255) , longitude varchar(255), srid varchar(255));"))
+]
 
 class DataBase(object):
 
@@ -17,10 +21,11 @@ class DataBase(object):
         if self.connector != None:
             return self.connector
         return None
-    def create_table_primary(self):
+
+    def create_tables(self):
         cursor = self.connector.cursor()
-        sql=("CREATE TABLE IF NOT EXISTS address (id serial primary key, street varchar(255), number varchar(255), neighborhood varchar(255), city varchar(255), state varchar(255));")
-        res = cursor.execute(sql)
+        for i in range(len(commands_create_tables)):
+            res = cursor.execute(commands_create_tables[i])
         cursor.close()
         return 'Table created'
 

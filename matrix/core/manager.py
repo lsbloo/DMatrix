@@ -8,7 +8,7 @@ connector = db.createConnector()
 if connector != None:
     print(connector)
 
-res = db.create_table_primary()
+res = db.create_tables()
 print(res)
 
 
