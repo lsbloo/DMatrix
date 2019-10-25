@@ -1,4 +1,4 @@
-from core.manager import createConnetor,insertAddress,getAllAddress,getAddress
+from core.manager import *
 
 class Address(object):
     def __init__(self,street,number,neighborhood,city,state):

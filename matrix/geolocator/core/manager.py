@@ -1,6 +1,6 @@
-from .database import DataBase
+from database import DataBase
 
-from .auth import DATABASE_NAME,DATABASE_HOST_CONNECT,DATABASE_USER,DATABASE_PASSWORD,DATABASE_PORT
+from auth import DATABASE_NAME,DATABASE_HOST_CONNECT,DATABASE_USER,DATABASE_PASSWORD,DATABASE_PORT
 
 db = DataBase(DATABASE_NAME,DATABASE_HOST_CONNECT,DATABASE_USER,DATABASE_PASSWORD,DATABASE_PORT)
 
@@ -16,8 +16,16 @@ def insertAddress(adress):
 def getAllAddress():
     return db.get_all_adress()
 
-def getAddress(self):
-    return db.get_address(self)
+def getAddress(address):
+    return db.get_address(address)
 
+def insertLocate(locate):
+    db.insert_locate(locate)
+
+def getAllLocate():
+    return db.get_all_locate()
+
+def getLocate(locate):
+    return db.get_locate(locate)
 
 
