@@ -4,6 +4,8 @@ from .auth import DATABASE_NAME,DATABASE_HOST_CONNECT,DATABASE_USER,DATABASE_PAS
 
 db = DataBase(DATABASE_NAME,DATABASE_HOST_CONNECT,DATABASE_USER,DATABASE_PASSWORD,DATABASE_PORT)
 
+#PseudoInterface; 
+
 
 def createConnetor():
     res = db.createConnector()
