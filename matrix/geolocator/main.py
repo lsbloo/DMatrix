@@ -1,5 +1,7 @@
 from model import Address
 from model import Locate
+from reader.hcsv import generate_csv_address
 
 
-print(Address.get_all())
+generate_csv_address(Address.get_all())
+
