@@ -21,4 +21,24 @@ def generate_csv_address(list_address):
     for i in list_valid:
         spamwriter.writerow(i)
 
+def transform_csv_address(row):
+    exita = row[0].split(";")
+    return exita
+
+def reader_csv_address():
+    path = PATH_SAVE_CSV+"/"+"address.csv"
+    archive = open(path,'r')
+    reader = csv.reader(archive)
+    cabecalho =True
+    list_resolve=[]
+    for row in reader:
+        if cabecalho:
+            #print(f'Nome Colunas: {", ".join(row)}')
+            cabecalho=False
+        else:
+            #print(f'{", ".join(row)}')
+            list_resolve.append(transform_csv_address(row))
+    return list_resolve
+        
+
 
