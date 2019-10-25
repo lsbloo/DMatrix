@@ -57,3 +57,27 @@ class DataBase(object):
         print(cursor.fetch())
 
 
+    def insert_locate(self,locate):
+        cursor = self.connector.cursor()
+        sql = ("INSERT INTO locates (latitude,longitude,srid,address_id) VALUES ('%s','%s','%s','%s')"
+        %(locate.latitude,locate.longitude,locate.srid,locate.address_id))
+        cursor.execute(sql)
+        cursor.close()
+    
+    def get_all_locate(self):
+        cursor = self.connector.cursor()
+        sql = ("SELECT * FROM locates")
+        cursor.execute(sql)
+        lista_locates=[]
+        for r in cursor.fetchall():
+            lista_locates.append(r)
+        return lista_locates
+    
+    def get_locate(self,locate):
+        cursor=self.connector.cursor()
+        sql=("SELECT * FROM locates WHERE latitude='%s' and longitude='%s' and srid='%s' and address_id='%s'"
+        %(locate.latitude,locate.longitude,locate.srid,locate.address_id))
+        cursor.execute(sql)
+        print(cursor.fetch())
+        
+
